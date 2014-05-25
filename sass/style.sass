@@ -1,0 +1,58 @@
+@import url(http://fonts.googleapis.com/css?family=Luckiest+Guy)
+@import "susy"
+
+$font: 'Luckiest Guy'
+$text-color: #260314
+
+*
+    font-family: $font
+    color: $text-color
+
+body
+    background: url('../image/bg.jpg')
+
+#container
+    @include container(50em)
+    margin-top: 100px
+
+header
+    h1
+        text-align: center
+        font-size: 3em
+        //text-shadow: 0.02em 0.02em 0.02em #999999
+
+#content
+    @include span(12 of 12)
+
+    #board
+        position: relative
+        margin-bottom: 50px
+        table
+            width: 100%
+            background: #FFE4AA
+            tr
+                td
+                    font-size: 10em
+                    text-align: center
+                    border: 1px solid $text-color
+                    cursor: pointer
+                    vertical-align: middle
+        .notice
+            position: absolute
+            top: 15px
+            left: 15px
+            bottom: 15px
+            right: 15px
+            .bg
+                @extend .notice
+                background: #000000
+                border-radius: 20px
+            .text
+                position: absolute
+                top: 50%
+                left: 50%
+                font-size: 2em
+                width: 100%
+                margin-left: -50%
+                text-align: center
+                color: #ffffff

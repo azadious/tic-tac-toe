@@ -1,0 +1,13 @@
+{
+  "name": "tic-tac-toe",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-uncss": "~0.3.2",
+    "grunt-contrib-sass": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}

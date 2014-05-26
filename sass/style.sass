@@ -9,17 +9,20 @@ $text-color: #260314
     color: $text-color
 
 body
-    background: url('../image/bg.jpg')
-
-#container
-    @include container(50em)
-    margin-top: 100px
+    //background: url('../image/bg.jpg')
+    background: #FFF1D4
 
 header
+    background: #260314
+    padding: 10px
     h1
         text-align: center
         font-size: 3em
-        //text-shadow: 0.02em 0.02em 0.02em #999999
+        color: #ffffff
+
+#container
+    @include container(50em)
+    margin-top: 20px
 
 #content
     @include span(12 of 12)
@@ -28,21 +31,24 @@ header
         position: relative
         margin-bottom: 50px
         table
-            width: 100%
             background: #FFE4AA
+            margin: 0px auto
             tr
                 td
                     font-size: 10em
                     text-align: center
-                    border: 1px solid $text-color
+                    border: 5px solid $text-color
                     cursor: pointer
                     vertical-align: middle
+                    width: 250px
+                    height: 220px
         .notice
             position: absolute
             top: 15px
-            left: 15px
+            left: 20px
             bottom: 15px
-            right: 15px
+            right: 20px
+            display: none
             .bg
                 @extend .notice
                 background: #000000
@@ -56,3 +62,9 @@ header
                 margin-left: -50%
                 text-align: center
                 color: #ffffff
+
+    .reset
+        width: 100%
+        text-align: center
+        cursor: pointer
+        padding: 20px

@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/backbone/backbone.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="js/app.min.js"></script>
+    <script src="js/build.js"></script>
 </head>
 <body>
 
-<div id="container">
-
-    <header>
-
-
+<header>
     <h1>Tic Tac Toe</h1>
-    </header>
+</header>
+
+<div id="container">
 
     <section id="content">
 
@@ -26,19 +25,19 @@
 
             <table>
                 <tr>
-                    <td><i class="fa fa-times"></i></td>
                     <td></td>
-                    <td><i class="fa fa-circle-o"></i></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td><i class="fa fa-times"></i></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><i class="fa fa-times"></i></td>
-                    <td><i class="fa fa-circle-o"></i></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
 
@@ -50,6 +49,8 @@
             </div>
 
         </div><!-- board -->
+
+        <div class="reset">Reset</div>
 
     </section>
 

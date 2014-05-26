@@ -1,4 +1,10 @@
 tic-tac-toe
 ===========
 
-tic tac toe backbone project
+tic tac toe javascript project
+
+
+Demo
+====
+
+http://azadious.github.io/tic-tac-toe/

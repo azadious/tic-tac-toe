@@ -60,7 +60,18 @@ AbstractSideTurn.prototype.drawMarker = function(el) {
     el.html(this.marker);
 };
 
+AbstractSideTurn.prototype.setPointer = function(pointer,index) {
+    if(pointer[index] == 0)
+    {
+        pointer[index] = this.side;
+    }
+    else
+    {
+        alert('this block not null');
+    }
+}
+
 AbstractSideTurn.prototype.callbackWinnerAction = function(side) {
-    alert( this.sideName + ' Win');
+    //alert( this.sideName + ' Win');
     return true;
 };

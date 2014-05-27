@@ -10,10 +10,71 @@ ComputerTurn.prototype.marker = '<i class="fa fa-times"></i>';
 
 ComputerTurn.prototype.chooseBlock = function(pointer,turnNumber) {
 
-    var indexResult = { win: '' , lose: '' };
+    var minimaxIndex = { win: '' , lose: '' };
     var side = this.side;
     var pointerCount = pointer.length;
 
+
+    if( parseInt(turnNumber) > 2 )
+    {
+        for (var i = 0; i < pointerCount ; i++) {
+            cPointer = pointer.slice(0);
+
+            if(cPointer[i] == 0)
+            {
+                cPointer[i] = side;
+                var isComputerWin = this.checkWinner(cPointer,side);
+                
+                if(isComputerWin == true)
+                {
+                    minimaxIndex.win = i;
+                }
+            }
+        }
+
+        side = 'h';
+        for (var i = 0; i < pointerCount ; i++) {
+            hPointer = pointer.slice(0);
+
+            if(hPointer[i] == 0)
+            {
+                hPointer[i] = side;
+                var isHumanWin = this.checkWinner(hPointer,side);
+
+                if(isHumanWin == true)
+                {
+                    minimaxIndex.lose = i;
+                }
+            }
+
+        }
+
+
+        if(minimaxIndex.win != '')
+        {
+            return minimaxIndex.win;
+        }
+
+        else if(minimaxIndex.lose != '')
+        {
+            return minimaxIndex.lose;
+        }
+
+        else
+        {
+            randomIndex = this.random(pointer);
+            return randomIndex;
+        }
+
+    }
+    else
+    {
+        randomIndex = this.random(pointer);
+        return randomIndex;
+    }
+};
+
+ComputerTurn.prototype.random = function(pointer) {
     for (var i = 0; i < pointer.length; i++) {
         indexPointer = _.random(0, pointer.length);
         if(pointer[indexPointer] == 0)
@@ -21,26 +82,6 @@ ComputerTurn.prototype.chooseBlock = function(pointer,turnNumber) {
             return indexPointer;
         }
     }
-
-    // if( parseInt(turnNumber) > 2 )
-    // {
-    //
-    //     for (var i = 0; i < pointerCount ; i++) {
-    //         pointer[i] = side;
-    //         console.log(pointer);
-    //     }
-    //
-    // }
-    // else
-    // {
-    //     for (var i = 0; i < pointer.length; i++) {
-    //         indexPointer = _.random(0, pointer.length);
-    //         if(pointer[indexPointer] == 0)
-    //         {
-    //             return indexPointer;
-    //         }
-    //     }
-    // }
 };
 
 ComputerTurn.prototype.genPointer = function(pointer,index,side) {

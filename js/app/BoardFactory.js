@@ -47,6 +47,7 @@ BoardFactory.prototype.markPointer = function( el ) {
 
         if(result)
         {
+            alert(this.humanTurn.sideName + 'Win');
             this.resetGame();
             return;
         }
@@ -60,7 +61,6 @@ BoardFactory.prototype.markPointer = function( el ) {
 
         //Computer Choose Block
         computerMarkerIndex = this.computerTurn.chooseBlock(this.pointer,this.turnNumber);
-        //console.log(computerMarkerIndex);
 
         if(Number.isInteger(computerMarkerIndex))
         {
@@ -73,6 +73,7 @@ BoardFactory.prototype.markPointer = function( el ) {
 
             if(result)
             {
+                alert(this.computerTurn.sideName + 'Win');
                 this.resetGame();
                 return;
             }
@@ -88,7 +89,6 @@ BoardFactory.prototype.markPointer = function( el ) {
     else
     {
         alert('Bot say: don\'t cheat :p');
-        console.log(this.pointer);
     }
 
 };

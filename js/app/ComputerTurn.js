@@ -40,7 +40,7 @@ ComputerTurn.prototype.chooseBlock = function(pointer,turnNumber) {
             {
                 hPointer[i] = side;
                 var isHumanWin = this.checkWinner(hPointer,side);
-                console.log(isHumanWin + ' ' + i);
+                //console.log(isHumanWin + ' ' + i);
                 if(isHumanWin == true)
                 {
                     minimaxIndex.lose = i;

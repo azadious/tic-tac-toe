@@ -10,7 +10,7 @@ ComputerTurn.prototype.marker = '<i class="fa fa-times"></i>';
 
 ComputerTurn.prototype.chooseBlock = function(pointer,turnNumber) {
 
-    var minimaxIndex = { win: '' , lose: '' };
+    var minimaxIndex = { win: null , lose: null };
     var side = this.side;
     var pointerCount = pointer.length;
 
@@ -40,7 +40,7 @@ ComputerTurn.prototype.chooseBlock = function(pointer,turnNumber) {
             {
                 hPointer[i] = side;
                 var isHumanWin = this.checkWinner(hPointer,side);
-
+                console.log(isHumanWin + ' ' + i);
                 if(isHumanWin == true)
                 {
                     minimaxIndex.lose = i;
@@ -48,26 +48,27 @@ ComputerTurn.prototype.chooseBlock = function(pointer,turnNumber) {
             }
 
         }
+        //console.log(minimaxIndex);
 
-
-        if(minimaxIndex.win != '')
+        if(minimaxIndex.win != null)
         {
             return minimaxIndex.win;
         }
 
-        else if(minimaxIndex.lose != '')
+        else if(minimaxIndex.lose != null)
         {
             return minimaxIndex.lose;
         }
 
-        else
+        else if(minimaxIndex.win == null && minimaxIndex.lose == null)
         {
+            //console.log('random');
             randomIndex = this.random(pointer);
             return randomIndex;
         }
 
     }
-    else
+    else 
     {
         randomIndex = this.random(pointer);
         return randomIndex;

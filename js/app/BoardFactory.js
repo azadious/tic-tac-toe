@@ -62,28 +62,26 @@ BoardFactory.prototype.markPointer = function( el ) {
         //Computer Choose Block
         computerMarkerIndex = this.computerTurn.chooseBlock(this.pointer,this.turnNumber);
 
-        if(Number.isInteger(computerMarkerIndex))
+        //Set Pointer To Array
+        this.pointer[computerMarkerIndex] = this.computerTurn.side;
+        this.computerTurn.drawMarker( $('td').eq(computerMarkerIndex) );
+
+        //Check Winner
+        result = this.computerTurn.checkWinner(this.pointer,this.computerTurn.side);
+
+        if(result)
         {
-            //Set Pointer To Array
-            this.pointer[computerMarkerIndex] = this.computerTurn.side;
-            this.computerTurn.drawMarker( $('td').eq(computerMarkerIndex) );
-
-            //Check Winner
-            result = this.computerTurn.checkWinner(this.pointer,this.computerTurn.side);
-
-            if(result)
-            {
-                alert(this.computerTurn.sideName + 'Win');
-                this.resetGame();
-                return;
-            }
-
-            //Count Turn Computer Turn
-            this.turnNumber = this.turnNumber + 1;
-
-            //Finish Process
-            this.isProcess = 0;
+            alert(this.computerTurn.sideName + 'Win');
+            this.resetGame();
+            return;
         }
+
+        //Count Turn Computer Turn
+        this.turnNumber = this.turnNumber + 1;
+
+        //Finish Process
+        this.isProcess = 0;
+    
 
     }
     else
